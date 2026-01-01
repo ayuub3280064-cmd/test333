@@ -121,7 +121,7 @@ const CourseDetailsPage = () => {
             </div>
 
             {course.description && (
-              <div style={{ background: `linear-gradient(135deg, ${primaryColor}15, ${primaryColor}08)`, padding: '1.5rem', borderRadius: '8px', borderLeft: `5px solid ${primaryColor}`, borderRadius: '8px' }}>
+              <div style={{ background: `linear-gradient(135deg, ${primaryColor}15, ${primaryColor}08)`, padding: '1.5rem', borderLeft: `5px solid ${primaryColor}`, borderRadius: '8px' }}>
                 <h3 style={{ margin: '0 0 0.75rem 0', color: '#1f2937', fontSize: '1.1rem', fontWeight: 700 }}>📝 Description</h3>
                 <p style={{ margin: 0, color: '#6b7280', lineHeight: 1.8, fontSize: '1rem' }}>{course.description}</p>
               </div>
