@@ -75,7 +75,7 @@ async function getCourse(req, res, next) {
 
 async function listCourses(req, res, next) {
   try {
-    const courses = await Course.find().populate('instructor', 'name email');
+    const courses = await Course.find().populate('instructor', 'name emaill');
     res.json(courses);
   } catch (err) { next(err); }
 }
