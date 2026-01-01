@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const InstructorDashboard = () => {
-  const { user } = useAuth();
+  useAuth();
   const [courses, setCourses] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
@@ -16,7 +16,7 @@ export default function AdminCoursesPage() {
   const itemsPerPage = 10;
   const [viewMode, setViewMode] = useState('card'); // 'list' or 'card'
 
-  const fetchCourses = async () => {
+  const fetchCourses = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -46,7 +46,7 @@ export default function AdminCoursesPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [search, statusFilter, instructorFilter, token]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -54,7 +54,7 @@ export default function AdminCoursesPage() {
 
   useEffect(() => {
     fetchCourses();
-  }, [search, statusFilter, instructorFilter, currentPage]);
+  }, [fetchCourses, currentPage]);
 
   const handleStatusChange = async (courseId, newStatus) => {
     try {

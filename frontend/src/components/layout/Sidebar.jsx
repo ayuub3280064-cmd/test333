@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import { useNavigate, useLocation, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   if (!isAuthenticated) {
@@ -16,8 +15,6 @@ const Sidebar = () => {
     logout();
     navigate('/');
   };
-
-  const isActive = (path) => location.pathname === path;
 
   // Student Navigation
   const studentNav = [
